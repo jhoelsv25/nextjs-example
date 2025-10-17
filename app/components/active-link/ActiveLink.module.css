@@ -1,0 +1,19 @@
+.link {
+    color: gray;
+    font-weight: normal;
+    text-decoration: none;
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s;
+
+    &:hover {
+        text-decoration: underline;
+        color: #4a90e2;
+        font-weight: bold;
+    }
+}
+
+.active-link {
+    color: #4a90e2;
+    font-weight: bold;
+}
