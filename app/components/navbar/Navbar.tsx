@@ -1,16 +1,21 @@
 import Image from 'next/image';
 import { ActiveLink } from '../active-link/ActiveLink';
+import { IoCloud, IoDocument, IoExtensionPuzzle, IoHome, IoSettings, IoShield } from 'react-icons/io5';
+import { IoMdAlert } from 'react-icons/io';
+import { title } from 'process';
 
 export const Navbar = () => {
     console.log('Navbar component loaded');
     const items = [
-        { name: 'Dashboard', href: '/dashboard/home', title: 'Dashboard', current: true },
-        { name: 'Database', href: '/dashboard/database', title: 'Database', current: false },
-        { name: 'Cloud Storage', href: '/dashboard/cloud-storage', title: 'Cloud Storage', current: false },
-        { name: 'Reports', href: '/dashboard/reports', title: 'Reports', current: false },
-        { name: 'Security', href: '/dashboard/security', title: 'Security', current: false },
-        { name: 'Extensions', href: '/dashboard/extensions', title: 'Extensions', current: false },
-        { name: 'Settings', href: '/dashboard/settings', title: 'Settings', current: false },
+        { title: 'Dashboard', href: '/dashboard/home', subtitle: 'Overview of your activities', icon:<IoHome /> , current: true },
+        { title: 'Counter', href: '/dashboard/counter', subtitle: 'View and manage counters', icon:<IoHome /> , current: false },
+        { title: 'Pokemon', href: '/dashboard/pokemon', subtitle: 'View and manage Pokemon', icon:<IoHome /> , current: false },
+        { title: 'Database', href: '/dashboard/database', subtitle: 'Manage your database', icon:<IoMdAlert /> , current: false },
+        { title: 'Cloud Storage', href: '/dashboard/cloud-storage', subtitle: 'Access your files in the cloud', icon:<IoCloud /> , current: false },
+        { title: 'Reports', href: '/dashboard/reports', subtitle: 'View your reports', icon:<IoDocument /> , current: false },
+        { title: 'Security', href: '/dashboard/security', subtitle: 'Manage security settings', icon:<IoShield /> , current: false },
+        { title: 'Extensions', href: '/dashboard/extensions', subtitle: 'Manage extensions', icon:<IoExtensionPuzzle /> , current: false },
+        { title: 'Settings', href: '/dashboard/settings', subtitle: 'Settings', icon:<IoSettings /> , current: false },
     ];
     console.log('Navbar rendered');
     return (
@@ -43,10 +48,11 @@ export const Navbar = () => {
             <div id="nav" className="w-full px-6">
                 {items.map((item) => (
                     <ActiveLink
-                        key={item.name}
+                        key={item.title}
                         path={item.href}
-                        name={item.name}
                         title={item.title}
+                        subtitle={item.subtitle}
+                        icon={item.icon}
                     />
                 ))}
             </div>
